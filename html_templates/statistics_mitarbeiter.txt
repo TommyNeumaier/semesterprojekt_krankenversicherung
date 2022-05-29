@@ -1,0 +1,25 @@
+<header id="header">
+    <img src="./img/halol.png" width="4%" style="">
+</header>
+<section id="wrapper">
+    <nav id="nav-bar">
+        <ul>
+            <li><a onclick="loadPanel('overview_mitarbeiter')">Übersicht</a></li>
+            <li><a onclick="loadPanel('account_management')">Account-Management</a></li>
+            <li><a onclick="loadPanel('statistics_mitarbeiter')">Statistiken</a></li>
+            <li><a onclick="loadPanel('profile_mitarbeiter')">Profil</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+<h3>Statistiken</h3>
+
+        <p id="page-description">
+            Klicke auf die ID, um dir mehr Informationen über den Account anzeigen zu lassen. <br>
+            Durch die Suche kannst du ohne Eingabe von Suchparametern jegliche Accounts in der Tabelle suchen. <br></p>
+
+
+    </main>
+
+
+        </section>

@@ -1,0 +1,36 @@
+<header id="header">
+    <img onload="mitarbeiter_getProfileInformation()" src="./public/dashboard/img/halol.png" width="4%" style="">
+</header>
+
+
+<section id="wrapper">
+    <nav id="nav-bar">
+        <ul>
+            <li><a onclick="loadPanel('overview_mitarbeiter')">Übersicht</a></li>
+            <li><a onclick="loadPanel('account_management')">Account-Management</a></li>
+            <li><a onclick="loadPanel('statistics_mitarbeiter')">Statistiken</a></li>
+            <li><a onclick="loadPanel('profile_mitarbeiter')">Profil</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <h3>Profil</h3>
+
+        <p id="page-description">
+            Hier kannst du Einsicht in dein Mitarbeiterprofil nehmen.<br>
+            Hinweis: Änderungen kannst du in deinem Patientenprofil tätigen.<br>
+        </p>
+
+        <div id="mitarbeiter-profile-wrapper">
+        </div>
+    </main>
+
+
+</section>
+
+<script type="text/javascript">
+function myFunc() {
+mitarbeiter_getProfileInformation();
+}
+myFunc();
+</script>

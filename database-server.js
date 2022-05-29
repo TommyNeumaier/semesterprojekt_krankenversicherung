@@ -27,7 +27,7 @@ app.get("/getClients", (req, res) => {
     });
 });
 
-app.get("/getClientById/:id", (req, res) => {
+app.get("/getClientById/:id/:mail/:password", (req, res) => {
     const id = req.params.id;
     const sql_command = `SELECT * FROM \`clients\` WHERE \`id\` = ${id}`;
 
@@ -106,10 +106,8 @@ app.get("/login/:mail/:password", (req, res) => {
 
     sql.query(sql_command, (err, result, fields) => {
         if (err) throw err;
-        if(result.length == 1) {
-            res.send(true);
-        }
-        res.send(false);
+        const loginOk = result.length == 1 ? true : false;
+        res.send({result: result, loginOk: loginOk})
     })
 })
 

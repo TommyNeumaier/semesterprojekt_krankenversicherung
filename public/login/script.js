@@ -14,15 +14,17 @@ function login() {
             })
 
             .then((data) => {
-                if (!data) {
+                console.log(data)
+                if (!(data.loginOk)) {
                     document.getElementById('error-pw').style.display = "block";
                     document.getElementById('error-pw').innerHTML = "PW oder Email falsch";
                 } else {
                     sessionStorage['login_data'] = JSON.stringify({
                         mail: mail,
-                        password: SHA1(pw)
+                        password: SHA1(pw),
+                        id: data.result[0].id
                     })
-                    window.location.href = "../dashboard.html";
+                    window.location.href = "../dashboard/dashboard.html";
                 }
             })
 

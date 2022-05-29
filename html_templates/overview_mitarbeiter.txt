@@ -1,0 +1,29 @@
+<header id="header">
+    <img src="./img/halol.png" width="4%" style="">
+</header>
+<section id="wrapper">
+    <nav id="nav-bar">
+        <ul>
+            <li><a onclick="loadPanel('overview_mitarbeiter')">Übersicht</a></li>
+            <li><a onclick="loadPanel('account_management')">Account-Management</a></li>
+            <li><a onclick="loadPanel('statistics_mitarbeiter')">Statistiken</a></li>
+            <li><a onclick="loadPanel('profile_mitarbeiter')">Profil</a></li>
+        </ul>
+    </nav>
+
+    <main id="main">
+        <h2>Willkommen!</h2>
+        <h3>Übersicht</h3>
+
+        <p id="page-description">
+            Du bist nun in der Mitarbeiteransicht des Dashboards der WEHsicherung! <br>
+            Bitte wähle einen Menüpunkt rechts oder wechsle durch
+            Anklicken des Buttons unterhalb die Ansicht.
+
+            <br><br>Du kannst noch in folgende Ansichten wechseln:<br>-
+        </p>
+
+        <br>
+        <button type="button" class="btn btn-outline-primary">Ansicht wechseln</button>
+    </main>
+</section>

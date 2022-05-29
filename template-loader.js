@@ -13,7 +13,6 @@ app.get("/getHTMLTemplate/:mail/:password/:template", (req, res) => {
 
     fs.readFile(`./html_templates/${template}.txt`, 'utf-8', (err, result) => {
         if (err) throw err;
-        console.log(result)
         res.send({result: result});
     })
 })
