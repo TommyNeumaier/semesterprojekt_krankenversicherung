@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akshar&display=swap" rel="stylesheet">
+</head>
+<body>
+<header><h1>WEHsicherung</h1></header>
+<main>
+    <div class="login">
+        <div class="login-triangle"></div>
+
+        <h2 class="login-header">Log in</h2>
+
+        <form class="login-container" action="">
+            <p><input id="login-input-mail" type="text" placeholder="Email"></p>
+            <p id="error-email"></p>
+            <p><input id="login-input-password" type="password" placeholder="Password"></p>
+            <p id="error-pw"></p>
+            <p>Nicht registriert? <a href="#">Erstellen Sie ein Konto</a></p>
+            <p><input type="button" onclick="login()" value="Log in"></p>
+        </form>
+    </div>
+</main>
+</body>
+</html>

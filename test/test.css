@@ -1,0 +1,12 @@
+#getClients {
+    overflow: scroll;
+    height: 50vh;
+}
+
+#editClient-edit-fields {
+    margin-top: 2vh;
+    display: grid;
+    grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+    grid-column-gap: 2.5vw;
+    grid-row-gap: 1vh;
+}

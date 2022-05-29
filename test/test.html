@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test servers</title>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <script src="test.js" defer></script>
+</head>
+<body>
+
+<h1>4000: getClients</h1>
+<div id="getClients"><!-- LOADED BY JAVASCRIPT !--></div>
+
+<h1>4000: addClient</h1>
+<div id="addClient">
+    <input id="addClient-firstname" type="text" placeholder="Vorname ...">
+    <input id="addClient-lastname" type="text" placeholder="Nachname ...">
+    <input id="addClient-birthday" type="text" placeholder="Geburtsdatum ...">
+    <input id="addClient-address" type="text" placeholder="Adresse ...">
+    <input id="addClient-state" type="text" placeholder="Bundesland ...">
+    <input id="addClient-country" type="text" placeholder="Land ...">
+    <input id="addClient-mail" type="text" placeholder="E-Mail-Adresse ...">
+    <input id="addClient-phone" type="text" placeholder="Telefonnummer ...">
+    <input id="addClient-insurance_type" type="text" placeholder="Versicherungstyp ...">
+    <button type="submit" onclick="addClient()"><a>Senden ...</a></button>
+    <p id="addclient-server-answer"><!-- LOADED BY JAVASCRIPT !--></p>
+</div>
+
+<h1>4000: getClientById</h1>
+<div id="getClientById">
+    <input id="getClientById-id" type="text" placeholder="ID ...">
+    <button type="submit" onclick="getClientById()"><a>Senden ...</a></button>
+    <div id="getClientById-result"><!-- LOADED BY JAVASCRIPT !--></div>
+</div>
+
+<h1>4000: searchClients</h1>
+<div id="searchClients">
+    <input id="searchClients-search" type="text" placeholder="Suche ...">
+    <select id="searchClients-params">
+        <option id="searchClients-please-select">Bitte wähle ...</option>
+        <option id="searchClients-firstname">Vorname</option>
+        <option id="searchClients-lastname">Nachname</option>
+        <option id="searchClients-birthday">Geburtstag</option>
+        <option id="searchClients-address">Adresse</option>
+        <option id="searchClients-state">Bundesland</option>
+        <option id="searchClients-country">Land</option>
+        <option id="searchClients-mail">E-Mail-Adresse</option>
+        <option id="searchClients-phone">Telefonnummer</option>
+        <option id="searchClients-insurance_type">Versicherungstyp</option>
+    </select>
+    <button type="submit" onclick="searchClients()"><a>Senden ...</a></button>
+    <div id="searchClients-result"><!-- LOADED BY JAVASCRIPT !--></div>
+</div>
+
+<h1>4000: deleteClient</h1>
+<div id="deleteClient">
+    <input id="deleteClient-id" type="text" placeholder="ID ...">
+    <button type="submit" onclick="deleteClient()"><a>Senden ...</a></button>
+    <div id="deleteClient-result"><!-- LOADED BY JAVASCRIPT !--></div>
+</div>
+
+<h1>4000: editClient</h1>
+<h2>(Felder, an denen keine Änderungen oder "" gemacht wurde, werden nicht überschrieben.</h2>
+<div id="editClient">
+    <select id="editClient-clients"><!-- LOADED BY JAVASCRIPT !--></select>
+    <button type="submit" onclick="getEditFields()"><a>GET ...</a></button>
+    <div id="editClient-edit-fields"><!-- LOADED BY JAVASCRIPT !--></div>
+    <div id="editClient-result"><!-- LOADED BY JAVASCRIPT !--></div>
+</div>
+</body>
+</html>
