@@ -196,7 +196,7 @@ function getEditFields() {
     id = id[1];
     sessionStorage[187] = id;
 
-    fetch(`http://localhost:4000/getClientById/${id}`)
+    fetch(`http://localhost:4000/getClientById/${id}/mail/pw`)
 
         .then((response) => {
             return response.json();

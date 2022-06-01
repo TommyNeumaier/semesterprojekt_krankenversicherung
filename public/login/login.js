@@ -1,47 +1,43 @@
 const PASSWORD_PATTERN = /^.*(?=.{8,})(?=.*\d)(?=.*[`!?\-.,`]).*$/;
-const MAIL_PATTERN = /^((\s*|[A-z\d._-]+@[A-z\d.-]+\.[A-z]{2,4}))$/;
+const NIN_PATTERN = null;
 
 function login() {
-    let mail = document.getElementById(`login-input-mail`).value;
-    let pw = document.getElementById(`login-input-password`).value;
+    let nin = document.getElementById(`login-input-nin`).value;
+    let password = SHA1(document.getElementById(`login-input-password`).value);
 
-    let validateAll = validateMail(mail) && validatePassword(pw);
+    let validated = validateNIN() && validatePassword(document.getElementById(`login-input-password`).value);
+    if (validated) {
+        fetch(`http://localhost:3000/login/${nin}/${password}`)
 
-    if (validateAll) {
-        fetch(`http://localhost:4000/login/${document.getElementById(`login-input-mail`).value}/${SHA1(document.getElementById(`login-input-password`).value)}`)
             .then((response) => {
                 return response.json();
             })
 
             .then((data) => {
-                console.log(data)
-                if (!(data.loginOk)) {
-                    document.getElementById('error-pw').style.display = "block";
-                    document.getElementById('error-pw').innerHTML = "PW oder Email falsch";
+                console.log(data);
+                if (!data.status) {
+                    document.getElementById(`error-pw`).innerText = `Zugangsdaten falsch.`;
                 } else {
-                    sessionStorage['login_data'] = JSON.stringify({
-                        mail: mail,
-                        password: SHA1(pw),
-                        id: data.result[0].id
-                    })
-                    window.location.href = "../dashboard/dashboard.html";
+                    sessionStorage['user_data'] = JSON.stringify(data.response[0]);
+                    window.location.href = "../dashboard/index.html";
                 }
             })
 
             .catch((err) => {
-                console.log(err)
+                console.log(err);
             })
     }
 }
 
-function validateMail(mail) {
-    if (MAIL_PATTERN.test(mail) && mail.length >= 5) {
-        document.getElementById('error-email').style.display = "none";
+function validateNIN(nin) {
+    /*if (NIN_PATTERN.test(nin) && nin.length === 10) {
+        document.getElementById('error-nin').style.display = "none";
         return true;
     }
-    document.getElementById('error-email').style.display = "block";
-    document.getElementById('error-email').innerText = `E-Mail-Adresse falsch (@, ., Länge)`;
-    return false;
+    document.getElementById('error-nin').style.display = "block";
+    document.getElementById('error-nin').innerText = `E-Mail-Adresse falsch (@, ., Länge)`;
+    return false;*/
+    return true;
 }
 
 
@@ -55,8 +51,11 @@ function validatePassword(password) {
     return false;
 }
 
-
-function SHA1(string) {
+/**
+ * Secure Hash Algorithm (SHA1)
+ * http://www.webtoolkit.info/
+ **/
+function SHA1(msg) {
     function rotate_left(n, s) {
         var t4 = (n << s) | (n >>> (32 - s));
         return t4;
@@ -103,7 +102,8 @@ function SHA1(string) {
             }
         }
         return utftext;
-    };var blockstart;
+    };
+    var blockstart;
     var i, j;
     var W = new Array(80);
     var H0 = 0x67452301;
@@ -113,11 +113,12 @@ function SHA1(string) {
     var H4 = 0xC3D2E1F0;
     var A, B, C, D, E;
     var temp;
-    string = Utf8Encode(string);
-    var msg_len = string.length;
+    msg = Utf8Encode(msg);
+    var msg_len = msg.length;
     var word_array = new Array();
     for (i = 0; i < msg_len - 3; i += 4) {
-        j = string.charCodeAt(i) << 24 | string.charCodeAt(i + 1) << 16 | string.charCodeAt(i + 2) << 8 | string.charCodeAt(i + 3);
+        j = msg.charCodeAt(i) << 24 | msg.charCodeAt(i + 1) << 16 |
+            msg.charCodeAt(i + 2) << 8 | msg.charCodeAt(i + 3);
         word_array.push(j);
     }
     switch (msg_len % 4) {
@@ -125,13 +126,13 @@ function SHA1(string) {
             i = 0x080000000;
             break;
         case 1:
-            i = string.charCodeAt(msg_len - 1) << 24 | 0x0800000;
+            i = msg.charCodeAt(msg_len - 1) << 24 | 0x0800000;
             break;
         case 2:
-            i = string.charCodeAt(msg_len - 2) << 24 | string.charCodeAt(msg_len - 1) << 16 | 0x08000;
+            i = msg.charCodeAt(msg_len - 2) << 24 | msg.charCodeAt(msg_len - 1) << 16 | 0x08000;
             break;
         case 3:
-            i = string.charCodeAt(msg_len - 3) << 24 | string.charCodeAt(msg_len - 2) << 16 | string.charCodeAt(msg_len - 1) << 8 | 0x80;
+            i = msg.charCodeAt(msg_len - 3) << 24 | msg.charCodeAt(msg_len - 2) << 16 | msg.charCodeAt(msg_len - 1) << 8 | 0x80;
             break;
     }
     word_array.push(i);
@@ -185,5 +186,6 @@ function SHA1(string) {
         H4 = (H4 + E) & 0x0ffffffff;
     }
     var temp = cvt_hex(H0) + cvt_hex(H1) + cvt_hex(H2) + cvt_hex(H3) + cvt_hex(H4);
+
     return temp.toLowerCase();
 }

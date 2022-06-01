@@ -14,11 +14,10 @@ header {
     width: 100%;
     height: 8%;
     background-color: cornflowerblue;
-    padding: 1% 0 1% 0;
 }
 
 header > img {
-    margin: 0 0 0 3vw;
+    margin: 1vh 0 0 1vw;
 }
 
 #wrapper {
@@ -113,4 +112,27 @@ main h3 {
 
 #account-management-search-parameter-list {
     padding: 2%;
+}
+
+#dashboard-selection-main {
+    margin: 4vh 0 0 0;
+}
+
+#dashboard-selection-flex-container {
+    gap: 10vw;
+    justify-content: center;
+}
+
+.dashboard-selection-card-body {
+    display: flex;
+    margin: 2vh 0 0 0;
+    justify-content: center;
+}
+
+#dashboard-selection-error {
+    margin: 3vh 0 0 0;
+}
+
+.dashboard-change-view {
+    margin: 3vh 0 0 0;
 }
