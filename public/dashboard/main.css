@@ -136,3 +136,13 @@ main h3 {
 .dashboard-change-view {
     margin: 3vh 0 0 0;
 }
+
+.account-management-table-ids:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transition: 0.4s opacity;
+}
+
+#profile-employee-information {
+    margin: 5vh 0 0 0;
+}

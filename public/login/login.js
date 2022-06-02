@@ -40,7 +40,6 @@ function validateNIN(nin) {
     return true;
 }
 
-
 function validatePassword(password) {
     if (PASSWORD_PATTERN.test(password)) {
         document.getElementById('error-pw').style.display = "none";
